@@ -10,5 +10,12 @@
     "toast"
   ],
   "author": "alan",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "path": "^0.12.7",
+    "require-dir": "^1.2.0",
+    "webpack": "^4.29.5",
+    "webpack-stream": "^5.2.1"
+  }
 }

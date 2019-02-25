@@ -1,5 +1,6 @@
 'use strict';
 const Toastly = function (element, opts) {
+  console.log(1)
   const owner = this;
 
   owner.init();
@@ -11,4 +12,4 @@ Toastly.prototype = {
   }
 }
 
-export default Toastly;
+module.exports = Toastly;
