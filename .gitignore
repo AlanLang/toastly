@@ -1,0 +1,8 @@
+.DS_Store
+/node_modules
+/.idea
+/local
+/issues
+npm-debug.log
+/dist
+yarn.lock
