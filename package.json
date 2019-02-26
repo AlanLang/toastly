@@ -12,9 +12,6 @@
   "author": "alan",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
     "gulp": "^4.0.0",
     "path": "^0.12.7",
     "require-dir": "^1.2.0",
