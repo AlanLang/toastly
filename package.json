@@ -12,7 +12,12 @@
   "author": "alan",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
     "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
     "path": "^0.12.7",
     "require-dir": "^1.2.0",
     "webpack": "^4.29.5",

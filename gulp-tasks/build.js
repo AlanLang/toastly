@@ -1,7 +1,9 @@
 var gulp = require('gulp');
+var clean = require('gulp-clean');
 var webpack = require('webpack-stream');
 var path = require('path');
 var webpackConfig = require("../webpack.config.js");
+var babel = require('gulp-babel');
 
 var paths = {
     tmp: './tmp',
@@ -10,10 +12,15 @@ var paths = {
     src: './src/'
 };
 
+gulp.task('clean', function(){
+  return gulp.src(paths.dist, {read: false,allowEmpty: true})
+    .pipe(clean());
+})
+
 gulp.task('js:vanilla', function () {
     return gulp.src(path.join(paths.src + 'Toastly.js'))
-        .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest(paths.dist));
+      .pipe(webpack(webpackConfig))
+      .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('default',gulp.series(gulp.parallel('js:vanilla')));
+gulp.task('default',gulp.series(gulp.parallel('clean','js:vanilla')));
