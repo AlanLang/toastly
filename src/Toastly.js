@@ -1,6 +1,10 @@
-'use strict';
+const Message = require('./Message');
+
 const Toastly = function (element, opts) {
   console.log(1)
+  for(const a of "alan"){
+    console.log(a)
+  }
   const owner = this;
 
   owner.init();
@@ -8,9 +12,10 @@ const Toastly = function (element, opts) {
 
 Toastly.prototype = {
   init:function(){
-    console.log(123)
+    const wrapper = document.querySelector('body')
+    const message = new Message()
+    wrapper.innerHTML = message.render()
   }
 }
 
-//module.exports = Toastly;
-export default Toastly
+module.exports = Toastly;

@@ -2,11 +2,16 @@
 <html>
 <head>
   <title></title>
-  <script src="../dist/toastly.js"></script>
+  <script  src="../dist/toastly.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
-  const toast = new Toastly()
+window.onload = function(){
+  var square = new Shape("square", 30, 30);
+  console.log( square.shoutout() );
+  console.log( 'Area of Shape: ' + square.area );
+  console.log( 'Color of Shape: ' + square.color );
+}
 </script>
 </body>
 </html>
