@@ -1,8 +1,8 @@
-'use strict';
+import Message from './Message'
 const Toastly = function (element, opts) {
   console.log(1)
   const owner = this;
-
+  console.log('%cMessage: ','color: MidnightBlue; background: Aquamarine;',Message);
   owner.init();
 };
 
