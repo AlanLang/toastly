@@ -1,4 +1,4 @@
-export default class Toastly {
+export class Toastly {
   area: number;
   color: string;
   constructor ( name: string, width: number, height: number ) {
