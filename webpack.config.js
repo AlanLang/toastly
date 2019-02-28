@@ -3,7 +3,7 @@ module.exports = {
   output: {
     library: 'Toastly',
     libraryTarget: 'umd',
-    filename: 'toastly.js'
+    filename: 'toastly.min.js'
   },
   module: {
     rules: [

@@ -12,5 +12,5 @@ Toastly.prototype = {
   }
 }
 
-//module.exports = Toastly;
-export default Toastly
+module.exports = Toastly;
+//export default Toastly
