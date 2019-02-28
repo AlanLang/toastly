@@ -1,8 +1,9 @@
-export class Toastly {
+export class Message {
   area: number;
   color: string;
   constructor ( name: string, width: number, height: number ) {
     this.area = width * height;
+    console.log(123)
     this.color = "pink";
   };
 

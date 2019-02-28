@@ -3,7 +3,6 @@ var clean = require('gulp-clean');
 var webpack = require('webpack-stream');
 var path = require('path');
 var webpackConfig = require("../webpack.config.js");
-var babel = require('gulp-babel');
 
 var paths = {
     tmp: './tmp',

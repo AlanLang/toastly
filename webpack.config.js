@@ -1,10 +1,10 @@
 module.exports = {
-  mode: 'production',
-  devtool: 'eval',
+  mode: "development",
+  devtool: "inline-source-map",
   output: {
     library: 'Toastly',
     libraryTarget: 'umd',
-    filename: 'toastly.min.js'
+    filename: 'toastly.js'
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ]
