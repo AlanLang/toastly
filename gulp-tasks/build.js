@@ -18,7 +18,7 @@ gulp.task('clean', function(){
 })
 
 gulp.task('js:vanilla', function () {
-    return gulp.src(path.join(paths.src + 'index.ts'))
+    return gulp.src(path.join(paths.src + 'Toastly.ts'))
       .pipe(webpack(webpackConfig))
       .pipe(gulp.dest(paths.dist));
 });

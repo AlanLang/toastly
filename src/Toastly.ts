@@ -1,4 +1,4 @@
-export class Shape {
+export class Toastly {
   area: number;
   color: string;
   constructor ( name: string, width: number, height: number ) {
