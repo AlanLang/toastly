@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --open"
   },
   "keywords": [
     "toast"
@@ -15,11 +15,14 @@
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
+    "html-webpack-plugin": "^3.2.0",
     "path": "^0.12.7",
     "require-dir": "^1.2.0",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
     "webpack-stream": "^5.2.1"
   }
 }
