@@ -7,7 +7,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 
 module.exports = {
   mode: "development",
-  entry: path.join(__dirname, "src/Toastly.ts"),
+  entry: path.join(__dirname, "src/Toastly.tsx"),
   devtool: "inline-source-map",
   output: {
     library: 'Toastly',
