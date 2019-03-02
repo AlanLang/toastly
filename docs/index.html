@@ -4,9 +4,11 @@
   <title></title>
 </head>
 <body>
+<button id="tost">通知</button>
 <script type="text/javascript">
-  window.onload=function(){
-    Toastly.message.success();
-  }
+var btn = document.getElementById("tost");
+btn.onclick=function(){
+  Toastly.message.success();
+}
 </script>
 </html>
