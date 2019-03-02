@@ -4,7 +4,9 @@ class Message {
   duration = 3;//默认自动关闭延时，单位秒
   maxCount = 0;//最大显示数, 超过限制时，最早的消息会被自动关闭
   top = 24;//消息距离顶部的位置
-  no = Notification.create();
+  no = Notification.create({
+    maxCount:5
+  });
 
   constructor () {
 
@@ -17,7 +19,7 @@ class Message {
    */
   success(content: string, duration?:number, onClose?:Function){
     this.no.create({
-      content:'1'
+      content: content
     })
   }
 

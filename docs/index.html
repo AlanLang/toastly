@@ -7,8 +7,11 @@
 <button id="tost">通知</button>
 <script type="text/javascript">
 var btn = document.getElementById("tost");
+var a = 0;
+
 btn.onclick=function(){
-  Toastly.message.success();
+  a = a + 1;
+  Toastly.message.success(a);
 }
 </script>
 </html>

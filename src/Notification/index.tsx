@@ -42,23 +42,28 @@ export default class Notification extends React.PureComponent<NotificationProps,
   }
 
   add(messageItem: MessageItem) {
+    const { maxCount = 0 } = this.props;
     if (messageItem) {
-        const key = messageItem.key ? messageItem.key : getUuid();
-        messageItem.key = key;
-        const messages = [...this.state.messages];
-        let isExit = false;
-        for (const message of messages) {
-            if (message.key === key) {
-                isExit = true;
-                break;
-            }
+      const key = messageItem.key ? messageItem.key : getUuid();
+      messageItem.key = key;
+      const messages = [...this.state.messages];
+      let isExit = false;
+      for (const message of messages) {
+          if (message.key === key) {
+              isExit = true;
+              break;
+          }
+      }
+      if (!isExit) {
+        if(maxCount > 0 && messages.length >= maxCount){
+          messages[0].onClose?messages[0].onClose():null;
+          messages.shift();
         }
-        if (!isExit) {
-          messages.push(messageItem);
-          this.setState({
-              messages,
-          });
-        }
+        messages.push(messageItem);
+        this.setState({
+            messages,
+        });
+      }
     }
     return messageItem;
   }
@@ -83,7 +88,7 @@ export default class Notification extends React.PureComponent<NotificationProps,
           }
       };
       children.push(
-          <div key={message.key} {...message} onClose={close}>{message.content}</div>
+          <div key={message.key} >{message.content}</div>
       );
     });
     return children;
@@ -112,9 +117,22 @@ export interface MessageItem{
 }
 
 const NotificationConent = styled.div`
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0,0,0,0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+  font-feature-settings: 'tnum';
   position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 0px;
+  top: 16px;
+  left: 0;
+  z-index: 1010;
+  width: 100%;
+  pointer-events: none;
   text-align: center;
 `;
