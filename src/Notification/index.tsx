@@ -76,15 +76,15 @@ export default class Notification extends React.PureComponent<NotificationProps,
     const {messages} = this.state;
     const children: any[] = [];
     messages.map((message: any) => {
-        const close = () => {
-            this.remove(message.key);
-            if (message.onClose) {
-                message.onClose();
-            }
-        };
-        children.push(
-            <div key={message.key} {...message} onClose={close}>{message.content}</div>
-        );
+      const close = () => {
+          this.remove(message.key);
+          if (message.onClose) {
+              message.onClose();
+          }
+      };
+      children.push(
+          <div key={message.key} {...message} onClose={close}>{message.content}</div>
+      );
     });
     return children;
   }
@@ -108,6 +108,7 @@ export interface State{
 export interface MessageItem{
   key?: string;
   content?: string|React.ReactNode; //内容
+  onClose?: (event: any) => void;
 }
 
 const NotificationConent = styled.div`

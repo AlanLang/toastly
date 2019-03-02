@@ -1,5 +1,5 @@
 export interface NotificationProps { 
-  maxCount?: number;// 最大可现实数量
+  maxCount?: number;// 最大可显示数量
   duration?: number;// 默认关闭时间
   placement?:'topLeft'|'topRight'|'topBottom'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomBottom'|'bottomCenter';
   onClose?: (event: any) => void;
