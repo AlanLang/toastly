@@ -19,7 +19,11 @@ class Message {
    */
   success(content: string, duration?:number, onClose?:Function){
     this.no.create({
-      content: content
+      content: content,
+      duration:0,
+      onClose:()=>{
+        console.log(1)
+      }
     })
   }
 

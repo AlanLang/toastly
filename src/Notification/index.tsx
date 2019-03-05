@@ -6,7 +6,7 @@ import { NotificationProps } from './PropsType'
 let seed = 0;
 const now = Date.now();
 const getUuid = () => {
-  return `Message-${now}_${seed++}`;
+  return `Toastly-${now}_${seed++}`;
 };
 export default class Notification extends React.PureComponent<NotificationProps, State> {
   public static defaultProps = {
@@ -27,13 +27,30 @@ export default class Notification extends React.PureComponent<NotificationProps,
     document.body.appendChild(div);
     const message: any = ReactDOM.render(<Notification {...props}></Notification>, div);
     return {
+      /**
+       * 创建
+       * @param params 入参
+       */
       create(params: MessageItem) {
         return message.add(params);
       },
+      /**
+       * 移除指定项
+       * @param key 唯一id
+       */
       remove(key: any) {
         message.remove(key);
       },
-      clearAll() {
+      /**
+       * 移除所有
+       */
+      removeAll(){
+        message.removeAll();
+      },
+      /**
+       * 移除
+       */
+      clear() {
         ReactDOM.unmountComponentAtNode(div);
         document.body.removeChild(div);
       },
@@ -41,10 +58,23 @@ export default class Notification extends React.PureComponent<NotificationProps,
     };
   }
 
+  removeAll(){
+    this.setState((previousState: any) => {
+      previousState.messages.map((message: MessageItem) => {
+        if(message.onClose){
+          message.onClose();
+        }
+      });
+      return {
+          messages: [],
+      };
+    });
+  }
+
   add(messageItem: MessageItem) {
     const { maxCount = 0 } = this.props;
+    const { duration = this.props.duration, key = getUuid() } = messageItem;
     if (messageItem) {
-      const key = messageItem.key ? messageItem.key : getUuid();
       messageItem.key = key;
       const messages = [...this.state.messages];
       let isExit = false;
@@ -60,6 +90,14 @@ export default class Notification extends React.PureComponent<NotificationProps,
           messages.shift();
         }
         messages.push(messageItem);
+        if(duration > 0){
+          setTimeout(re=>{
+            this.remove(messageItem.key);
+            if (messageItem.onClose) {
+              messageItem.onClose();
+            }
+          }, duration * 1000)
+        }
         this.setState({
             messages,
         });
@@ -68,6 +106,10 @@ export default class Notification extends React.PureComponent<NotificationProps,
     return messageItem;
   }
 
+  /**
+   * 移除指定消息
+   * @param key 消息的key
+   */
   remove = (key: any) => {
     this.setState((previousState: any) => {
       const messages = previousState.messages.filter((message: any) => message.key !== key);
@@ -80,26 +122,25 @@ export default class Notification extends React.PureComponent<NotificationProps,
   getMessageChildren = () => {
     const {messages} = this.state;
     const children: any[] = [];
-    messages.map((message: any) => {
+    messages.map((message: MessageItem) => {
       const close = () => {
-          this.remove(message.key);
-          if (message.onClose) {
-              message.onClose();
-          }
+        this.remove(message.key);
+        if (message.onClose) {
+            message.onClose();
+        }
       };
       children.push(
-          <div key={message.key} >{message.content}</div>
+        <div key={message.key} >{message.content}</div>
       );
     });
     return children;
   }
 
-
   render() {
-    const {messages} = this.state;
+    const { placement } = this.props;
     const messagesChildren = this.getMessageChildren();
     return (
-      <NotificationConent>
+      <NotificationConent placement={placement}>
         {messagesChildren}
       </NotificationConent>
     );
@@ -113,14 +154,20 @@ export interface State{
 export interface MessageItem{
   key?: string;
   content?: string|React.ReactNode; //内容
-  onClose?: (event: any) => void;
+  /**
+   * 自动关闭延时，如果是0则不自动关闭
+   */
+  duration?: number;
+  onClose?: () => void;
 }
-
+interface IViewProps {
+  placement: 'topLeft'|'topRight'|'topBottom'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomBottom'|'bottomCenter';
+}
 const NotificationConent = styled.div`
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
   color: rgba(0,0,0,0.65);
   font-size: 14px;
   font-variant: tabular-nums;
@@ -129,10 +176,12 @@ const NotificationConent = styled.div`
   -webkit-font-feature-settings: 'tnum';
   font-feature-settings: 'tnum';
   position: fixed;
-  top: 16px;
+  top: ${(props: IViewProps) => props.placement.indexOf('top') >= 0 ? '16px' : 'auto'};
   left: 0;
+  right:0;
+  bottom: ${(props: IViewProps) => props.placement.indexOf('bottom') >= 0 ? '16px' : 'auto'};
   z-index: 1010;
   width: 100%;
   pointer-events: none;
-  text-align: center;
+  text-align: ${(props: IViewProps) => props.placement.indexOf('Right') >= 0 ? 'right' : (props: IViewProps) => props.placement.indexOf('Left') >= 0 ? 'left' : 'center'};
 `;
