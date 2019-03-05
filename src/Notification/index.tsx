@@ -176,10 +176,10 @@ const NotificationConent = styled.div`
   -webkit-font-feature-settings: 'tnum';
   font-feature-settings: 'tnum';
   position: fixed;
-  top: ${(props: IViewProps) => props.placement.indexOf('top') >= 0 ? '16px' : 'auto'};
+  top: ${(props: IViewProps) => props.placement.indexOf('top') >= 0 ? '0px' : 'auto'};
   left: 0;
   right:0;
-  bottom: ${(props: IViewProps) => props.placement.indexOf('bottom') >= 0 ? '16px' : 'auto'};
+  bottom: ${(props: IViewProps) => props.placement.indexOf('bottom') >= 0 ? '0px' : 'auto'};
   z-index: 1010;
   width: 100%;
   pointer-events: none;

@@ -4,16 +4,27 @@
   <title></title>
 </head>
 <body>
-<button id="tost">通知</button>
+<button id="success">成功</button>
+<button id="error">失败</button>
+<button id="info">消息</button>
+<button id="warning">警告</button>
+<button id="loading">加载中</button>
 <button id="close">关闭</button>
 <script type="text/javascript">
-var btn = document.getElementById("tost");
-var closeBtn = document.getElementById("close");
-var a = 0;
-
-btn.onclick=function(){
-  a = a + 1;
-  Toastly.message.success(a);
+success.onclick=function(){
+  Toastly.message.success('This is a prompt message for success, and it will disappear in 10 seconds');
+}
+error.onclick=function(){
+  Toastly.message.error('This is a prompt message for success, and it will disappear in 10 seconds');
+}
+info.onclick=function(){
+  Toastly.message.info('This is a prompt message for success, and it will disappear in 10 seconds');
+}
+warning.onclick=function(){
+  Toastly.message.warning('This is a prompt message for success, and it will disappear in 10 seconds');
+}
+loading.onclick=function(){
+  Toastly.message.loading('This is a prompt message for success, and it will disappear in 10 seconds');
 }
 closeBtn.onclick = function(){
   Toastly.message.removeAll();
