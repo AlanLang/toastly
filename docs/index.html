@@ -5,13 +5,18 @@
 </head>
 <body>
 <button id="tost">通知</button>
+<button id="close">关闭</button>
 <script type="text/javascript">
 var btn = document.getElementById("tost");
+var closeBtn = document.getElementById("close");
 var a = 0;
 
 btn.onclick=function(){
   a = a + 1;
   Toastly.message.success(a);
+}
+closeBtn.onclick = function(){
+  Toastly.message.removeAll();
 }
 </script>
 </html>
