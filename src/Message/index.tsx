@@ -18,45 +18,33 @@ export class Message {
    * 成功消息提醒
    * @param content 消息内容
    * @param duration 持续时间
-   * @param onClose 关闭的回调
    */
-  success(content: string, duration?:number, onClose?:Function){
-    this.notification.create({
+  success(content: string, duration?:number){
+    return this.notification.create({
       content: <MessageContent type="success">{content}</MessageContent>,
-      duration:duration,
-      onClose:()=>{
-        onClose?onClose():null
-      }
+      duration:duration
     })
   }
   /**
    * 失败消息提醒
    * @param content 消息内容
    * @param duration 持续时间
-   * @param onClose 关闭的回调
    */
-  error(content: string, duration?:number, onClose?:Function){
-    this.notification.create({
+  error(content: string, duration?:number){
+    return this.notification.create({
       content: <MessageContent type="error">{content}</MessageContent>,
-      duration:duration,
-      onClose:()=>{
-        onClose?onClose():null
-      }
+      duration:duration
     })
   }
   /**
    * 消息提醒
    * @param content 消息内容
    * @param duration 持续时间
-   * @param onClose 关闭的回调
    */
-  info(content: string, duration?:number, onClose?:Function){
-    this.notification.create({
+  info(content: string, duration?:number){
+    return this.notification.create({
       content: <MessageContent type="info">{content}</MessageContent>,
-      duration:duration,
-      onClose:()=>{
-        onClose?onClose():null
-      }
+      duration:duration
     })
   }
 
@@ -64,30 +52,22 @@ export class Message {
    * 警告消息提醒
    * @param content 消息内容
    * @param duration 持续时间
-   * @param onClose 关闭的回调
    */
-  warning(content: string, duration?:number, onClose?:Function){
-    this.notification.create({
+  warning(content: string, duration?:number){
+    return this.notification.create({
       content: <MessageContent type="warning">{content}</MessageContent>,
-      duration:duration,
-      onClose:()=>{
-        onClose?onClose():null
-      }
+      duration:duration
     })
   }
   /**
    * 加载中消息提醒
    * @param content 消息内容
    * @param duration 持续时间
-   * @param onClose 关闭的回调
    */
-  loading(content: string, duration = 0, onClose?:Function){
-    this.notification.create({
+  loading(content: string, duration = 0){
+    return this.notification.create({
       content: <MessageContent type="loading">{content}</MessageContent>,
-      duration:duration,
-      onClose:()=>{
-        onClose?onClose():null
-      }
+      duration:duration
     })
   }
 
@@ -97,10 +77,6 @@ export class Message {
 
   removeAll(){
     this.notification.removeAll();
-  }
-
-  config(config:ToastlyConfigProps){
-    
   }
 }
 

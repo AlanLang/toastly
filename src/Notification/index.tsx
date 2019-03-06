@@ -61,9 +61,9 @@ export default class Notification extends React.PureComponent<NotificationProps,
   removeAll(){
     this.setState((previousState: any) => {
       previousState.messages.map((message: MessageItem) => {
-        if(message.onClose){
-          message.onClose();
-        }
+        message.onClose = new Promise((resolve, reject) => {
+          resolve(message.key);
+      });
       });
       return {
           messages: [],
@@ -91,12 +91,12 @@ export default class Notification extends React.PureComponent<NotificationProps,
         }
         messages.push(messageItem);
         if(duration > 0){
-          setTimeout(re=>{
-            this.remove(messageItem.key);
-            if (messageItem.onClose) {
-              messageItem.onClose();
-            }
-          }, duration * 1000)
+          messageItem.onClose = new Promise((resolve, reject) => {
+            setTimeout(re=>{
+              this.remove(messageItem.key);
+              resolve(messageItem.key);
+            }, duration * 1000)
+          });
         }
         this.setState({
             messages,
@@ -125,9 +125,9 @@ export default class Notification extends React.PureComponent<NotificationProps,
     messages.map((message: MessageItem) => {
       const close = () => {
         this.remove(message.key);
-        if (message.onClose) {
-            message.onClose();
-        }
+        message.onClose = new Promise((resolve, reject) => {
+          resolve(message.key);
+        });
       };
       children.push(
         <div key={message.key} >{message.content}</div>
@@ -158,8 +158,9 @@ export interface MessageItem{
    * 自动关闭延时，如果是0则不自动关闭
    */
   duration?: number;
-  onClose?: () => void;
+  onClose?: Promise<any>;
 }
+
 interface IViewProps {
   placement: 'topLeft'|'topRight'|'topBottom'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomBottom'|'bottomCenter';
 }
