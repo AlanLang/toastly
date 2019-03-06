@@ -3,7 +3,7 @@
 ## 效果
 [live demo](https://alanlang.github.io/toastly/)
 
-## instalation
+## Getting Started
 using cnd
 ```
 <script src="https://npmcdn.com/toastly.js/dist/toastly.js"></script>
