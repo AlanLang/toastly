@@ -1,16 +1,23 @@
 {
   "name": "toastly.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "homepage": "https://github.com/AlanLang/toastly",
+  "repository": "https://github.com/AlanLang/toastly.git",
+  "main": "dist/toastly.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
-    "build": "webpack --config webpack.dev.config.js --mode production"
+    "build": "webpack --config webpack.dev.config.js --mode production",
+    "push": "gulp && npm publish"
   },
   "keywords": [
     "toast"
   ],
-  "author": "alan",
+  "author": "Alan<langwdalan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.8.5",

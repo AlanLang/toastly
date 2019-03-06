@@ -1,9 +1,0 @@
-src
-examples
-build
-yarn.lock
-gulp-tasks
-package-lock.json
-.babelrc
-.gitignore
-webpack.config.js
