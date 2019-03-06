@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
- template: path.join(__dirname, "docs/index.html"),
+ template: path.join(__dirname, "src/index.html"),
  filename: "./index.html"
 });
 
@@ -12,7 +12,8 @@ module.exports = {
   output: {
     library: 'Toastly',
     libraryTarget: 'umd',
-    filename: 'toastly.js'
+    filename: 'toastly.js',
+    path: path.resolve(__dirname, 'docs')
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ]
@@ -26,7 +27,7 @@ module.exports = {
       }
     ]
   },
- devServer: {
-   port: 3002
- }
+   devServer: {
+     port: 3002
+   }
 };
