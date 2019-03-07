@@ -1,6 +1,7 @@
 # toastly
-一个无须依赖HTML模板、极简的通知组件。
 [![NPM](https://nodei.co/npm/toastly.js.png)](https://nodei.co/npm/toastly.js/)
+
+一个无须依赖HTML模板、极简的通知组件。
 ## 效果
 [live demo](https://alanlang.github.io/toastly/)
 
