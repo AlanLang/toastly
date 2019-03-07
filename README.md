@@ -73,7 +73,7 @@ closeBtn.onclick = function(){
 | 参数  | 说明                                                         | 类型   | 默认值   |
 | ----- | ------------------------------------------------------------ | ------ | -------- |
 | content | 消息内容 | string | topRight |
-| duration | 默认自动关闭时间                           | number | 0 |
+| duration | 默认自动关闭时间                           | number | 3 |
 
 #### 全局方法
 * message.remove(key)
