@@ -78,6 +78,7 @@ closeBtn.onclick = function(){
 
 ### config
 * message.setConfig(option)
+
 option details:
 
 | 参数  | 说明                                                         | 类型   | 默认值   |
