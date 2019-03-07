@@ -6,7 +6,7 @@
 [live demo](https://alanlang.github.io/toastly/)
 
 ## Getting Started
-using cnd
+using cnm
 ```
 <script src="https://npmcdn.com/toastly.js/dist/toastly.js"></script>
 ```
@@ -20,7 +20,7 @@ npm install toastly.js
 ```
 
 ## Usage
-using cnd
+using cnm
 ```
 <!DOCTYPE html>
 <html>
