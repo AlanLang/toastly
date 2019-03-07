@@ -9,13 +9,16 @@
 <button id="info">消息</button>
 <button id="warning">警告</button>
 <button id="loading">加载中</button>
-<button id="close">关闭</button>
+<button id="closeBtn">关闭</button>
 <script type="text/javascript">
 success.onclick=function(){
-  Toastly.message.success('This is a prompt message for success, and it will disappear in 10 seconds');
+  const toast = Toastly.message.success('This is a prompt message for success, and it will disappear in 10 seconds');
+  toast.onClose.then(re=>{
+    console.log('%cre: ','color: MidnightBlue; background: Aquamarine;',re);
+  })
 }
 error.onclick=function(){
-  Toastly.message.error('This is a prompt message for success, and it will disappear in 10 seconds');
+  Toastly.message.error('This is a prompt message for success, and it will disappear in 10 seconds',10);
 }
 info.onclick=function(){
   Toastly.message.info('This is a prompt message for success, and it will disappear in 10 seconds');
@@ -26,7 +29,8 @@ warning.onclick=function(){
 loading.onclick=function(){
   Toastly.message.loading('This is a prompt message for success, and it will disappear in 10 seconds');
 }
-close.onclick = function(){
+closeBtn.onclick = function(){
+  console.log(123);
   Toastly.message.removeAll();
 }
 </script>
