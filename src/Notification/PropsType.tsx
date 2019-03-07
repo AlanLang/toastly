@@ -4,11 +4,11 @@ export interface NotificationProps {
    */
   maxCount?: number;
   /**
-   * 默认关闭事件
+   * 默认关闭时间
    */
   duration?: number;
   /**
    * 位置
    */
-  placement?:'topLeft'|'topRight'|'topBottom'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomBottom'|'bottomCenter';
+  placement?:'topLeft'|'topRight'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomCenter';
 }

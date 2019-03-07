@@ -1,13 +1,11 @@
 import Notification from '../Notification'
+import {NotificationProps} from '../Notification/PropsType'
 import MessageContent from './MessageContent'
 import * as React from "react";
 
 export class Message {
-  duration = 3;//默认自动关闭延时，单位秒
-  maxCount = 0;//最大显示数, 超过限制时，最早的消息会被自动关闭
-  top = 24;//消息距离顶部的位置
   notification = Notification.create({
-    maxCount:5,
+    maxCount:0,
     placement: 'topBottom'
   });
 
@@ -71,6 +69,12 @@ export class Message {
     })
   }
 
+  setConfig(option: NotificationProps){
+    this.notification.removeAll();
+    this.notification.clear();
+    this.notification = Notification.create(option);
+  }
+
   remove(key: string){
     this.notification.remove(key);
   }
@@ -78,10 +82,4 @@ export class Message {
   removeAll(){
     this.notification.removeAll();
   }
-}
-
-export interface ToastlyConfigProps { 
-  duration?: number; 
-  maxCount?: number;
-  top?:number;
 }

@@ -18,6 +18,9 @@ success.onclick=function(){
   })
 }
 error.onclick=function(){
+  Toastly.message.setConfig({
+    placement:'bottomBottom'
+  })
   Toastly.message.error('This is a prompt message for success, and it will disappear in 10 seconds',10);
 }
 info.onclick=function(){

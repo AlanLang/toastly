@@ -19,7 +19,7 @@ using npm
 npm install toastly.js
 ```
 
-## Use
+## Usage
 using cnd
 ```
 <!DOCTYPE html>
@@ -61,3 +61,27 @@ closeBtn.onclick = function(){
 </script>
 </html>
 ```
+
+## API
+### message
+组件提供了一些服务方法，使用方式和参数如下：
+* message.success(content,[duration])
+* message.error(content,[duration])
+* message.info(content,[duration])
+* message.warning(content,[duration])
+* message.loading(content,[duration])
+
+| 参数  | 说明                                                         | 类型   | 默认值   |
+| ----- | ------------------------------------------------------------ | ------ | -------- |
+| content | 消息内容 | string | topRight |
+| duration | 默认自动关闭时间                           | number | - |
+
+### config
+* message.setConfig(option)
+option details:
+
+| 参数  | 说明                                                         | 类型   | 默认值   |
+| ----- | ------------------------------------------------------------ | ------ | -------- |
+| place | 弹出位置，可选 `topLeft` `topRight` `topCenter` `bottomLeft` `bottomRight` `bottomCenter`  | string | topRight |
+| maxCount | 同一时间可展示的最大提示数量，为0时则不限制                              | number | 0 |
+| duration | 持续时间(秒)，当设置为0时不消失                           | number | 3 |

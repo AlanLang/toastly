@@ -1,7 +1,7 @@
 {
   "name": "toastly.js",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "一个无须依赖HTML模板、极简的通知组件。",
   "homepage": "https://github.com/AlanLang/toastly",
   "repository": "https://github.com/AlanLang/toastly.git",
   "main": "dist/toastly.js",
