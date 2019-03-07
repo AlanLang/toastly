@@ -63,8 +63,7 @@ closeBtn.onclick = function(){
 ```
 
 ## API
-### message
-组件提供了一些服务方法，使用方式和参数如下：
+### 组件提供了一些静态方法，使用方式和参数如下：
 * message.success(content,[duration])
 * message.error(content,[duration])
 * message.info(content,[duration])
@@ -74,9 +73,11 @@ closeBtn.onclick = function(){
 | 参数  | 说明                                                         | 类型   | 默认值   |
 | ----- | ------------------------------------------------------------ | ------ | -------- |
 | content | 消息内容 | string | topRight |
-| duration | 默认自动关闭时间                           | number | - |
+| duration | 默认自动关闭时间                           | number | 0 |
 
-### config
+### 全局方法
+* message.remove(key)
+* message.removeAll()
 * message.setConfig(option)
 
 option details:
