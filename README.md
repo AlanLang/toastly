@@ -62,8 +62,8 @@ closeBtn.onclick = function(){
 </html>
 ```
 
-## API
-### 组件提供了一些静态方法，使用方式和参数如下：
+### API
+#### 组件提供了一些静态方法，使用方式和参数如下：
 * message.success(content,[duration])
 * message.error(content,[duration])
 * message.info(content,[duration])
@@ -75,7 +75,7 @@ closeBtn.onclick = function(){
 | content | 消息内容 | string | topRight |
 | duration | 默认自动关闭时间                           | number | 0 |
 
-### 全局方法
+#### 全局方法
 * message.remove(key)
 * message.removeAll()
 * message.setConfig(option)
