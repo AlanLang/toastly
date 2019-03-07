@@ -6,7 +6,7 @@ import * as React from "react";
 export class Message {
   notification = Notification.create({
     maxCount:0,
-    placement: 'topBottom'
+    placement: 'topCenter'
   });
 
   constructor () {

@@ -162,7 +162,7 @@ export interface MessageItem{
 }
 
 interface IViewProps {
-  placement: 'topLeft'|'topRight'|'topBottom'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomBottom'|'bottomCenter';
+  placement: 'topLeft'|'topRight'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomCenter';
 }
 const NotificationConent = styled.div`
   -webkit-box-sizing: border-box;
