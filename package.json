@@ -1,13 +1,14 @@
 {
   "name": "toastly.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "一个无须依赖HTML模板、极简的通知组件。",
   "homepage": "https://github.com/AlanLang/toastly",
   "repository": "https://github.com/AlanLang/toastly.git",
-  "main": "dist/toastly.js",
+  "main": "index.js",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "index.js"
   ],
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js --mode development --open",
