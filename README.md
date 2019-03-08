@@ -34,28 +34,34 @@ using cnm
 <button id="info">消息</button>
 <button id="warning">警告</button>
 <button id="loading">加载中</button>
-<button id="closeBtn">关闭</button>
+<button id="closeAllBtn">全部关闭</button>
 <script type="text/javascript">
 success.onclick=function(){
-  const toast = Toastly.message.success('This is a prompt message for success, and it will disappear in 10 seconds');
+  const toast = Toastly.message.success('This is a prompt message for success');
   toast.onClose.then(re=>{
     console.log('%cre: ','color: MidnightBlue; background: Aquamarine;',re);
   })
 }
 error.onclick=function(){
-  Toastly.message.error('This is a prompt message for success, and it will disappear in 10 seconds',10);
+  Toastly.message.setConfig({
+    placement:'bottomBottom'
+  })
+  Toastly.message.error('This is a prompt message for error, and it will disappear in 10 seconds',10);
 }
 info.onclick=function(){
-  Toastly.message.info('This is a prompt message for success, and it will disappear in 10 seconds');
+  Toastly.message.info('This is a prompt message for info');
 }
 warning.onclick=function(){
-  Toastly.message.warning('This is a prompt message for success, and it will disappear in 10 seconds');
+  Toastly.message.warning('This is a prompt message for warning');
 }
 loading.onclick=function(){
-  Toastly.message.loading('This is a prompt message for success, and it will disappear in 10 seconds');
+  const key = Toastly.message.loading('This is a prompt message for loading').key;
+  setTimeout(() => {
+    Toastly.message.remove(key);
+    Toastly.message.success('loading已关闭')
+  }, 2);
 }
-closeBtn.onclick = function(){
-  console.log(123);
+closeAllBtn.onclick = function(){
   Toastly.message.removeAll();
 }
 </script>
