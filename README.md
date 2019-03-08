@@ -59,7 +59,7 @@ loading.onclick=function(){
   setTimeout(() => {
     Toastly.message.remove(key);
     Toastly.message.success('loading已关闭')
-  }, 2);
+  }, 2*1000);
 }
 closeAllBtn.onclick = function(){
   Toastly.message.removeAll();
