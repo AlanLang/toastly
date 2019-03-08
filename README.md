@@ -1,7 +1,7 @@
 # toastly
 [![NPM](https://nodei.co/npm/toastly.js.png)](https://nodei.co/npm/toastly.js/)
 
-一个无须依赖HTML模板、极简的通知组件。
+一个无须依赖HTML模板，可用于任何主流前端框架，极简的通知组件。
 ## 效果
 [live demo](https://alanlang.github.io/toastly/)
 
@@ -66,6 +66,21 @@ closeAllBtn.onclick = function(){
 }
 </script>
 </html>
+```
+using angular
+```
+import { Component } from '@angular/core';
+import { message } from 'toastly.js';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  onClick() {
+    message.success('This is a prompt message for success');
+  }
+}
 ```
 
 ### API
