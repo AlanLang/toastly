@@ -81,7 +81,7 @@ const MessageConentStyled = styled.div`
   font-size: 14px;
   font-variant: tabular-nums;
   list-style: none;
-  animation: ${MessageAnimation} 1s;
+  animation: ${MessageAnimation} 0.4s;
 `
 
 const FontSpan = styled.span`

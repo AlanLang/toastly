@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import styled, {keyframes} from 'styled-components';
+import QueueAnim from 'rc-queue-anim';
 import { NotificationProps } from './PropsType'
 
 let seed = 0;
@@ -140,7 +141,12 @@ export default class Notification extends React.PureComponent<NotificationProps,
     const { placement } = this.props;
     const messagesChildren = this.getMessageChildren();
     return (
-      <NotificationConent placement={placement}>
+      <NotificationConent 
+      animConfig={[
+        { opacity: [1, 0], translateY: [0, 50] },
+        { opacity: [1, 0], translateY: [0, -50] }
+      ]} 
+      placement={placement}>
         {messagesChildren}
       </NotificationConent>
     );
@@ -165,7 +171,7 @@ interface IViewProps {
   placement: 'topLeft'|'topRight'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomCenter';
 }
 
-const NotificationConent = styled.div`
+const NotificationConent = styled(QueueAnim)`
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
