@@ -140,12 +140,19 @@ export default class Notification extends React.PureComponent<NotificationProps,
   render() {
     const { placement } = this.props;
     const messagesChildren = this.getMessageChildren();
+    let animConfig = [
+      { opacity: [1, 0], translateY: [0, 50] },
+      { opacity: [1, 0], translateY: [0, -50] }
+    ]
+    if(placement.indexOf('bottom') >= 0){
+      animConfig = [
+        { opacity: [1, 0], translateY: [0, -50] },
+        { opacity: [1, 0], translateY: [0, 50] }
+      ]
+    }
     return (
       <NotificationConent 
-      animConfig={[
-        { opacity: [1, 0], translateY: [0, 50] },
-        { opacity: [1, 0], translateY: [0, -50] }
-      ]} 
+      animConfig={animConfig} 
       placement={placement}>
         {messagesChildren}
       </NotificationConent>
