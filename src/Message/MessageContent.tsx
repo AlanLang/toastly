@@ -56,6 +56,19 @@ export interface State{
 export interface Prop{
   type?: 'success'|'error'|'info'|'warning'|'loading';
 }
+const MessageAnimation = keyframes`
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+`;
 const MessageConentStyled = styled.div`
   margin-top: 16px;
   display: inline-block;
@@ -68,6 +81,7 @@ const MessageConentStyled = styled.div`
   font-size: 14px;
   font-variant: tabular-nums;
   list-style: none;
+  animation: ${MessageAnimation} 1s;
 `
 
 const FontSpan = styled.span`
@@ -102,5 +116,5 @@ const loadingCircle = keyframes`
 `;
 
 const LoadingSvg  = styled.svg`
-  animation: ${loadingCircle} 1s infinite linear;
+  animation: ${loadingCircle} 0.5s infinite linear;
 `
