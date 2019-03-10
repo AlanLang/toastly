@@ -82,6 +82,37 @@ export class AppComponent {
   }
 }
 ```
+using react
+```
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { message } from 'toastly.js';
+import Hello from './Hello';
+import './style.css';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'React'
+    };
+  }
+
+  onClick(){
+    message.success('这是一条提示')
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.onClick}>success</button>
+      </div>
+    );
+  }
+}
+
+render(<App />, document.getElementById('root'));
+```
 
 ### API
 #### 组件提供了一些静态方法，使用方式和参数如下：
