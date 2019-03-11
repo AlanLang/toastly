@@ -12,7 +12,7 @@
 <button id="closeAllBtn">全部关闭</button>
 <script type="text/javascript">
 success.onclick=function(){
-  const toast = Toastly.message.success('This is a prompt message for success',100);
+  const toast = Toastly.message.success('This is a prompt message for success');
   toast.onClose.then(re=>{
     console.log('%cre: ','color: MidnightBlue; background: Aquamarine;',re);
   })
