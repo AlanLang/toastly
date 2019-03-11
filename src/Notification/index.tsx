@@ -142,6 +142,7 @@ export default class Notification extends React.PureComponent<NotificationProps,
     const messagesChildren = this.getMessageChildren();
     return (
       <NotificationConent 
+      type="top"
       placement={placement}>
         {messagesChildren}
       </NotificationConent>
