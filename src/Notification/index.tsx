@@ -141,10 +141,9 @@ export default class Notification extends React.PureComponent<NotificationProps,
     const { placement } = this.props;
     const messagesChildren = this.getMessageChildren();
     return (
-      <NotificationConent 
-      type="top"
+      <NotificationConent    
       placement={placement}>
-        {messagesChildren}
+        <NotificationAnim placement={placement} type="top">{messagesChildren}</NotificationAnim>
       </NotificationConent>
     );
   }
@@ -168,7 +167,7 @@ interface IViewProps {
   placement: 'topLeft'|'topRight'|'topCenter'|'bottomLeft'|'bottomRight'|'bottomCenter';
 }
 
-const NotificationConent = styled(QueueAnim)`
+const NotificationConent = styled.div`
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
@@ -184,9 +183,14 @@ const NotificationConent = styled(QueueAnim)`
   top: ${(props: IViewProps) => props.placement.indexOf('top') >= 0 ? '0px' : 'auto'};
   left: 0;
   right:0;
-  bottom: ${(props: IViewProps) => props.placement.indexOf('bottom') >= 0 ? '0px' : 'auto'};
+  bottom: ${(props: IViewProps) => props.placement.indexOf('bottom') >= 0 ? '16px' : 'auto'};
   z-index: 1010;
   width: 100%;
   pointer-events: none;
   text-align: ${(props: IViewProps) => props.placement.indexOf('Right') >= 0 ? 'right' : (props: IViewProps) => props.placement.indexOf('Left') >= 0 ? 'left' : 'center'};
 `;
+
+const NotificationAnim = styled(QueueAnim)`
+  display:flex;
+  flex-direction: ${(props: IViewProps) => props.placement.indexOf('top') >= 0 ? 'column' : 'column-reverse'};;
+`
