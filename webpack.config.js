@@ -1,6 +1,6 @@
 module.exports = {
   mode: "production",
-  devtool: "inline-source-map",
+  devtool: "cheap-module-source-map",
   output: {
     library: 'Toastly',
     libraryTarget: 'umd',

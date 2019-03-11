@@ -8,8 +8,7 @@ var paths = {
     tmp: './tmp',
     root: './',
     dist: './dist/',
-    src: './src/',
-    docs:'./docs/'
+    src: './src/'
 };
 
 gulp.task('clean', function(){
@@ -20,8 +19,7 @@ gulp.task('clean', function(){
 gulp.task('js:vanilla', function () {
     return gulp.src(path.join(paths.src + 'Toastly.tsx'))
       .pipe(webpack(webpackConfig))
-      .pipe(gulp.dest(paths.dist))
-      .pipe(gulp.dest(paths.docs));
+      .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('default',gulp.series(gulp.parallel('clean','js:vanilla')));
