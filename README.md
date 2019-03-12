@@ -5,7 +5,7 @@
 ## 效果
 [live demo](https://alanlang.github.io/toastly/)
 
-## Getting Started
+## 安装
 using cnm
 ```
 <script src="https://npmcdn.com/toastly.js/dist/toastly.js"></script>
@@ -19,7 +19,7 @@ using npm
 npm install toastly.js
 ```
 
-## Usage
+## 使用
 using cnm
 ```
 <!DOCTYPE html>
