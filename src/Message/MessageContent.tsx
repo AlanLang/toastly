@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import styled,{keyframes} from 'styled-components';
 export default class MessageContent extends React.PureComponent<Prop, State> {
   constructor (props?: Prop) {
