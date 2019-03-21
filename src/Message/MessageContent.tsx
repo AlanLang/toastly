@@ -20,6 +20,7 @@ export default class MessageContent extends React.PureComponent<Prop, State> {
       default : return '#1890ff';
     }
   }
+  
   private getIcon(){
     const { type } = this.props;
     if(type === 'success'){
